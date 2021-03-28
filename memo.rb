@@ -20,13 +20,17 @@ def memo
  elsif
    memo_type == 2
     puts "編集内容を入力してください"
+    memo_file = gets.chomp.to_s
+    
+    puts "aa"
     memo_contents = readlines
-    CSV.open("test.csv", "a") do |csv|
+    CSV.open(memo_file + ".csv", "a") do |csv|
     csv << [memo_contents]
     return true
  end
  else
     puts "1か2を入力してください"
+    return true
  end
 end
 
